@@ -1,0 +1,77 @@
+.header {
+  margin: 30px auto 0;
+}
+
+.header__container {
+  width: 88.8%;
+  margin: 0 auto 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  width: 40px;
+}
+
+.header__logo-title {
+  font-size: 30px;
+  margin: 0 0 0 8px;
+}
+
+.header__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  margin-left: 30%;
+}
+
+.header__button {
+  width: 174px;
+  height: 48px;
+}
+
+.header__button:hover {
+  opacity: .7;
+}
+
+.header__item {
+  font-weight: 700;
+}
+
+.header__banner {
+  width: 100%;
+  background-color: #DBEFFA;
+  border-radius: 48px;
+  min-height: 700px;
+  background-image: url(../images/mountain.png);
+  background-repeat: no-repeat;
+  background-position: right 0 top 0;
+  background-size: 50%;
+}
+
+.header__content {
+  width: 550px;
+  padding-top: 145px;
+  margin-left: 108px;
+}
+
+.header__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 64px;
+}
+
+.header__subtitle {
+  opacity: .7;
+  margin: 32px 0 72px;
+}
