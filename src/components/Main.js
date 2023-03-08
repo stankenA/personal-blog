@@ -23,7 +23,10 @@ export default function Main() {
         <h2 className="posts__title">Make your story.</h2>
         <button className="posts__button button">Create new post</button>
         <PostForm onAddPost={addPost} />
-        <PostList posts={posts} onPostRemove={removePost} />
+        {posts.length !== 0
+          ? <PostList posts={posts} onPostRemove={removePost} />
+          : <h2 className="posts__subtitle">No posts :&#40;</h2>
+        }
       </section>
     </main>
   )

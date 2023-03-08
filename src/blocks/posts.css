@@ -12,6 +12,13 @@
   font-size: 46px;
 }
 
+.posts__subtitle {
+  margin: 35px 0;
+  font-weight: 700;
+  font-size: 30px;
+  opacity: 0.6;
+}
+
 .posts__button {
   color: #fff;
   width: 20%;
