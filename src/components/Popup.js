@@ -1,12 +1,24 @@
-import React from 'react'
+import React from 'react';
 
-export default function Popup() {
+export default function Popup({ children, isOpened, onClose }) {
+
+  function closePopup() {
+    onClose();
+  }
+
+  function closePopupOnBg(evt) {
+    if (evt.target.contains('popup_opened')) {
+      onClose();
+    }
+  }
+
   return (
-    <div className="popup">
-      <div className="popup__container">
+    <div className={`popup ${isOpened ? 'popup_opened' : ''}`} onClick={closePopup}>
+      <div className="popup__container" onClick={evt => evt.stopPropagation()}>
         <div className="popup__content">
-
+          {children}
         </div>
+        <button type="button" className="popup__close" onClick={closePopup}></button>
       </div>
     </div>
   )
