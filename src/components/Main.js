@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+
 import PostForm from './PostForm';
 import Post from './Post';
+import PostList from './PostList';
 
 import { initialPosts } from '../utils/constants';
 
@@ -8,8 +10,8 @@ export default function Main() {
 
   const [posts, setPosts] = useState(initialPosts);
 
-  function addPost(post) {
-    setPosts([...posts, post])
+  function addPost(newPost) {
+    setPosts([...posts, newPost])
   }
 
   return (
@@ -18,11 +20,7 @@ export default function Main() {
         <h2 className="posts__title">Make your story.</h2>
         <button className="posts__button button">Create new post</button>
         <PostForm onAddPost={addPost} />
-        <div className="posts__container">
-          {posts.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
-        </div>
+        <PostList posts={posts} />
       </section>
     </main>
   )

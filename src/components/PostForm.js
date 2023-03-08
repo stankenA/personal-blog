@@ -2,19 +2,13 @@ import React, { useState } from 'react';
 
 export default function PostForm({ onAddPost }) {
 
-  const [title, setTitle] = useState('');
-  const [txt, setTxt] = useState('');
+  const [post, setPost] = useState({ title: '', txt: '' });
 
   function addNewPost(evt) {
     evt.preventDefault();
 
-    const newPost = {
-      id: Date.now(),
-      title,
-      txt
-    }
-
-    onAddPost(newPost);
+    onAddPost({ ...post, id: Date.now() });
+    setPost({ title: '', txt: '' });
   }
 
   return (
@@ -26,8 +20,8 @@ export default function PostForm({ onAddPost }) {
           type="text"
           className="posts__input"
           placeholder="Enter post title..."
-          value={title}
-          onChange={evt => setTitle(evt.target.value)}
+          value={post.title}
+          onChange={evt => setPost({ ...post, title: evt.target.value })}
         />
       </div>
       <div className="posts__row">
@@ -36,8 +30,8 @@ export default function PostForm({ onAddPost }) {
           name="postTxt"
           className="posts__input posts__input_type_textarea"
           placeholder="Enter post text..."
-          value={txt}
-          onChange={evt => setTxt(evt.target.value)}
+          value={post.txt}
+          onChange={evt => setPost({ ...post, txt: evt.target.value })}
         >
         </textarea>
       </div>
