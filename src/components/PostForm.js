@@ -20,6 +20,7 @@ export default function PostForm({ onAddPost }) {
           type="text"
           className="posts__input"
           placeholder="Enter post title..."
+          required
           value={post.title}
           onChange={evt => setPost({ ...post, title: evt.target.value })}
         />
@@ -30,6 +31,7 @@ export default function PostForm({ onAddPost }) {
           name="postTxt"
           className="posts__input posts__input_type_textarea"
           placeholder="Enter post text..."
+          required
           value={post.txt}
           onChange={evt => setPost({ ...post, txt: evt.target.value })}
         >

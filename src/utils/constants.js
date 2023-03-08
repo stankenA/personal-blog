@@ -17,11 +17,11 @@ export const initialPosts = [
 export const dropdownMenuItems = [
   {
     id: 1,
-    option: 'Number'
+    option: 'Title'
   },
   {
     id: 2,
-    option: 'Alphapetic'
+    option: 'Description'
   },
   {
     id: 3,

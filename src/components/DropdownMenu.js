@@ -5,7 +5,7 @@ import { dropdownMenuItems } from '../utils/constants';
 export default function DropdownMenu() {
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
-  const [selected, setSelected] = useState('Number')
+  const [selected, setSelected] = useState(dropdownMenuItems[0].option);
 
   function toggleDropdown() {
     setIsDropdownOpened(!isDropdownOpened);
