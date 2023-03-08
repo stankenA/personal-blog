@@ -29,15 +29,19 @@ export default function Main() {
     setIsPopupOpened(false)
   }
 
+  function sortPosts(sort) {
+    setPosts([...posts].sort((a, b) => a[sort.toLowerCase()].localeCompare(b[sort.toLowerCase()])))
+  }
+
   return (
     <main className="content">
       <section className="posts">
         <h2 className="posts__title">Make your story.</h2>
         <button className="posts__button button" onClick={openPopup}>Create new post</button>
-        <DropdownMenu />
+        <DropdownMenu onSort={sortPosts} />
         {posts.length !== 0
           ? <PostList posts={posts} onPostRemove={removePost} />
-          : <h2 className="posts__subtitle">No posts :&#40;</h2>
+          : <h2 className="posts__subtitle">{`No posts? ( ͠° ͟ʖ ͡°)`}</h2>
         }
       </section>
       <Popup isOpened={isPopupOpened} onClose={closePopup}>

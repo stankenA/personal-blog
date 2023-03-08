@@ -6,12 +6,6 @@ export default function Popup({ children, isOpened, onClose }) {
     onClose();
   }
 
-  function closePopupOnBg(evt) {
-    if (evt.target.contains('popup_opened')) {
-      onClose();
-    }
-  }
-
   return (
     <div className={`popup ${isOpened ? 'popup_opened' : ''}`} onClick={closePopup}>
       <div className="popup__container" onClick={evt => evt.stopPropagation()}>

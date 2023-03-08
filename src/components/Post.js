@@ -13,7 +13,7 @@ export default function Post({ post, number, onPostRemove }) {
         <h2 className="posts__heading">{post.title}</h2>
         <button className="posts__delete-btn" onClick={removePost}></button>
       </div>
-      <p className="posts__txt">{post.txt}</p>
+      <p className="posts__txt">{post.text}</p>
     </div>
   )
 }

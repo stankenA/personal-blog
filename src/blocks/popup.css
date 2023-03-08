@@ -21,12 +21,11 @@
 
 .popup__container {
   position: relative;
-  max-width: 1000px;
+  max-width: 940px;
   width: 80%;
   background-color: #fff;
   border-radius: 32px;
   box-sizing: border-box;
-  /* pointer-events: all; */
 }
 
 .popup__content {

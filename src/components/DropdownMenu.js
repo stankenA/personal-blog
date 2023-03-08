@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DropdownMenuItem from './DropdownMenuItem';
 import { dropdownMenuItems } from '../utils/constants';
 
-export default function DropdownMenu() {
+export default function DropdownMenu({ onSort }) {
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
-  const [selected, setSelected] = useState(dropdownMenuItems[0].option);
+  const [selectedItem, setSelectedItem] = useState('-');
 
   function toggleDropdown() {
     setIsDropdownOpened(!isDropdownOpened);
   }
 
   function selectOption(item) {
-    setSelected(item.textContent);
+    setSelectedItem(item.textContent);
+    onSort(item.textContent);
     setIsDropdownOpened(false);
   }
 
   return (
     <div className="dropdown">
       <h3 className="dropdown__title">Sort by</h3>
-      <div className="dropdown__selected" onClick={toggleDropdown}>
-        <p className="dropdown__txt">{selected}</p>
+      <div className="dropdown__selected" onClick={toggleDropdown} onChange={() => console.log('boop')}>
+        <p className="dropdown__txt">{selectedItem}</p>
         <span className={`dropdown__arrow ${isDropdownOpened ? 'dropdown__arrow_opened' : ''}`}></span>
       </div>
       <ul className={`dropdown__menu ${isDropdownOpened ? 'dropdown__menu_opened' : ''}`}>
         {dropdownMenuItems.map((item) => (
-          <DropdownMenuItem key={item.id} option={item.option} selected={selected} onSelect={selectOption} />
+          <DropdownMenuItem
+            key={item.id}
+            option={item.option}
+            selectedItem={selectedItem}
+            onSelect={selectOption}
+          />
         ))}
       </ul>
     </div>
