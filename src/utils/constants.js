@@ -12,4 +12,24 @@ export const initialPosts = [
   {
     id: 4, title: 'Inspirational quote', txt: 'It’s not the mountain we conquer, but ourselves.'
   }
+];
+
+export const dropdownMenuItems = [
+  {
+    id: 1,
+    option: 'Number'
+  },
+  {
+    id: 2,
+    option: 'Alphapetic'
+  },
+  {
+    id: 3,
+    option: 'Something'
+  },
+  {
+    id: 4,
+    option: 'Else',
+
+  },
 ]

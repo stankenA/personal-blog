@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import PostForm from './PostForm';
 import PostList from './PostList';
+import DropdownMenu from './DropdownMenu';
 
 import { initialPosts } from '../utils/constants';
 
@@ -23,6 +24,7 @@ export default function Main() {
         <h2 className="posts__title">Make your story.</h2>
         <button className="posts__button button">Create new post</button>
         <PostForm onAddPost={addPost} />
+        <DropdownMenu />
         {posts.length !== 0
           ? <PostList posts={posts} onPostRemove={removePost} />
           : <h2 className="posts__subtitle">No posts :&#40;</h2>
