@@ -5,8 +5,12 @@
   border: none;
   cursor: pointer;
   transition: all .4s ease;
+  box-sizing: border-box;
+  border: 1px solid transparent;
 }
 
 .button:hover {
-  opacity: .7;
+  background-color: #DBDEFA;
+  color: #583FBC;
+  border-color: #583FBC;
 }
