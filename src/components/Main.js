@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
+import { usePosts } from '../hooks/usePost';
 
 import PostFilter from './PostFilter';
 import PostList from './PostList';
@@ -12,23 +13,9 @@ export default function Main() {
   const [posts, setPosts] = useState(initialPosts);
   const [isPopupOpened, setIsPopupOpened] = useState(false);
 
-  const [filter, setFilter] = useState({ sort: '', query: '' })
+  const [filter, setFilter] = useState({ sort: '', query: '' });
 
-  const sortedPosts = useMemo(() => {
-
-    // Проверяем, был ли сортирован массив
-    // P.S. Сделано это потому, что изначальный стейт selectedSort равен пустой строке.
-    // При попытке передать его функции localeCompare она не отработает
-
-    if (filter.sort) {
-      return [...posts].sort((a, b) => a[filter.sort.toLowerCase()].localeCompare(b[filter.sort.toLowerCase()]))
-    }
-    return posts;
-  }, [filter.sort, posts])
-
-  const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()))
-  }, [filter.query, sortedPosts])
+  const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
   function addPost(newPost) {
     setPosts([...posts, newPost]);

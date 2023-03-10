@@ -9,18 +9,20 @@ export default function PostFilter({ filter, setFilter }) {
 
   return (
     <div className="posts__filter">
-      <DropdownMenu onSort={setSort} />
-      <label htmlFor="search" className="posts__search-label">Search</label>
-      <div className="posts__search-input">
-        <input
-          name="search"
-          type="text"
-          className="posts__search"
-          placeholder="Search..."
-          value={filter.query}
-          onChange={evt => setFilter({ ...filter, query: evt.target.value })}
-        />
+      <div className="posts__search-container">
+        <label htmlFor="search" className="posts__search-label">Search by Title</label>
+        <div className="posts__search-input">
+          <input
+            name="search"
+            type="text"
+            className="posts__search"
+            placeholder="Search..."
+            value={filter.query}
+            onChange={evt => setFilter({ ...filter, query: evt.target.value })}
+          />
+        </div>
       </div>
+      <DropdownMenu onSort={setSort} />
     </div>
   )
 }

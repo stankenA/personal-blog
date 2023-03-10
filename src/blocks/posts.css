@@ -31,7 +31,6 @@
   min-height: 50vh;
   width: 90%;
   margin-top: 50px;
-  overflow: hidden;
 }
 
 /* Post */
@@ -167,19 +166,24 @@
 .posts__filter {
   width: 90%;
   margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts__search-container {
+  width: 40%;
 }
 
 .posts__search-label {
   font-weight: 700;
   font-size: 26px;
   margin: 0 0 20px;
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 .posts__search-input {
   position: relative;
-  width: 50%;
+  width: 100%;
 }
 
 .posts__search-input::after {
