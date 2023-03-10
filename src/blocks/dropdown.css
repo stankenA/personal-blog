@@ -1,6 +1,13 @@
 .dropdown {
   width: 290px;
   position: relative;
+  margin-bottom: 25px;
+}
+
+.dropdown__title {
+  font-weight: 700;
+  font-size: 26px;
+  margin: 0 0 20px;
 }
 
 .dropdown__selected {
