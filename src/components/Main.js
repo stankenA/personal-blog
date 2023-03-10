@@ -48,6 +48,7 @@ export default function Main() {
       <Popup isOpened={isPopupOpened} onClose={closePopup}>
         <PostForm onAddPost={addPost} />
       </Popup>
+      <button type="button" className="posts__up button">Go up</button>
     </main>
   )
 }

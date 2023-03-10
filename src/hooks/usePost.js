@@ -4,7 +4,7 @@ export function useSortedPosts(posts, sort) {
   const sortedPosts = useMemo(() => {
 
     // Проверяем, был ли сортирован массив
-    // P.S. Сделано это потому, что изначальный стейт selectedSort равен пустой строке.
+    // P.S. Сделано это потому, что изначальный стейт sort равен пустой строке.
     // При попытке передать его функции localeCompare она не отработает
 
     if (sort) {

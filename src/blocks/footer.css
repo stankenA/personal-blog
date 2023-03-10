@@ -1,0 +1,151 @@
+.footer {
+  width: 100%;
+  background: #041434;
+}
+
+.footer__content {
+  width: 1280px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__info {
+  max-width: 42%;
+}
+
+.footer__logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo {
+  display: block;
+  width: 40px;
+}
+
+.footer__logo-txt {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28px;
+  color: #fff;
+  margin: 0 0 0 15px;
+}
+
+.footer__info-txt {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  opacity: .6;
+  color: #fff;
+  margin: 20px 0 50px;
+}
+
+.footer__subtitle {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  opacity: .6;
+  color: #fff;
+  margin: 0 0 24px;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__menu-item {
+  margin-bottom: 15px;
+}
+
+.footer__link {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__item {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.footer__icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  transition: all .4s ease;
+}
+
+.footer__icon-box:hover {
+  opacity: .7;
+}
+
+.footer__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+.footer__icon-img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer__item-content {
+  margin-left: 24px;
+}
+
+.footer__social {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 4px;
+}
+
+.footer__social-name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: #fff;
+  margin: 0;
+}
+
+.footer__rights {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  opacity: .6;
+  color: #fff;
+  margin: 50px 0 0;
+}

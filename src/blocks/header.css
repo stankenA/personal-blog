@@ -1,5 +1,6 @@
 .header {
   margin: 30px auto 0;
+  width: var(--page-width);
 }
 
 .header__container {
