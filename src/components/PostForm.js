@@ -7,9 +7,11 @@ export default function PostForm({ onAddPost }) {
   function addNewPost(evt) {
     evt.preventDefault();
 
-    onAddPost({ ...post, id: Date.now() });
+    onAddPost({ ...post, id: post.title });
     setPost({ title: '', text: '' });
   }
+
+  const isPostEmpty = post.text === '' || post.title === '';
 
   return (
     <form className="posts__form" onSubmit={addNewPost}>
@@ -37,7 +39,11 @@ export default function PostForm({ onAddPost }) {
         >
         </textarea>
       </div>
-      <button type="submit" className="posts__submit button">Create post</button>
+      <button
+        type="submit"
+        className={`posts__submit button ${isPostEmpty && 'posts__submit_disabled'}`}
+        disabled={isPostEmpty ? true : false}
+      >Create post</button>
     </form>
   )
 }

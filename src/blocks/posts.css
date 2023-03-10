@@ -147,3 +147,10 @@
   font-weight: 700;
   font-size: 26px;
 }
+
+.posts__submit_disabled {
+  border: 2px solid rgba(24, 25, 69, 0.6);
+  background-color: #fff;
+  color: rgba(24, 25, 69, 0.6);
+  pointer-events: none;
+}
