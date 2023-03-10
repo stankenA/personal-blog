@@ -1,0 +1,21 @@
+.animation-enter {
+  opacity: 0;
+  transform: translate(-50%);
+}
+
+.animation-enter-active {
+  opacity: 1;
+  transition: all 800ms ease-in;
+  transform: translate(0%);
+}
+
+.animation-exit {
+  opacity: 1;
+  transform: translate(0%);
+}
+
+.animation-exit-active {
+  opacity: 0;
+  transition: all 800ms ease-in;
+  transform: translate(50%);
+}
