@@ -28,7 +28,7 @@
 }
 
 .posts__container {
-  min-height: 30vh;
+  min-height: 50vh;
   width: 90%;
   margin-top: 50px;
 }
@@ -163,7 +163,7 @@
 
 /* Search */
 
-.posts__search-container {
+.posts__filter {
   width: 90%;
   margin: 25px 0;
 }
@@ -187,8 +187,8 @@
   right: 0;
   top: 0;
   height: 100%;
-  width: 40px;
-  background: url(../images/search.svg) no-repeat center / 28px 28px;
+  width: 50px;
+  background: url(../images/search.svg) no-repeat center / 24px 24px;
   background-color: #DBEFFA;
   border-radius: 16px;
   display: block;

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 
+import PostFilter from './PostFilter';
 import PostList from './PostList';
-import DropdownMenu from './DropdownMenu';
 import Popup from './Popup';
 import PostForm from './PostForm';
 
@@ -11,28 +11,24 @@ export default function Main() {
 
   const [posts, setPosts] = useState(initialPosts);
   const [isPopupOpened, setIsPopupOpened] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedSort, setSelectedSort] = useState('');
 
-  // Колбэк будет вызван только в том случае, если какой-либо депс поменяет своё значение
-  // В нашем случае необходимо следить за изменением алгоритма сортировки и массива постов
+  const [filter, setFilter] = useState({ sort: '', query: '' })
+
   const sortedPosts = useMemo(() => {
 
     // Проверяем, был ли сортирован массив
     // P.S. Сделано это потому, что изначальный стейт selectedSort равен пустой строке.
     // При попытке передать его функции localeCompare она не отработает
 
-    console.log('Отраб')
-
-    if (selectedSort) {
-      return [...posts].sort((a, b) => a[selectedSort.toLowerCase()].localeCompare(b[selectedSort.toLowerCase()]))
+    if (filter.sort) {
+      return [...posts].sort((a, b) => a[filter.sort.toLowerCase()].localeCompare(b[filter.sort.toLowerCase()]))
     }
     return posts;
-  }, [selectedSort, posts])
+  }, [filter.sort, posts])
 
   const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter(post => post.title.toLowerCase().includes(searchQuery.toLowerCase()))
-  }, [searchQuery, sortedPosts])
+    return sortedPosts.filter(post => post.title.toLowerCase().includes(filter.query.toLowerCase()))
+  }, [filter.query, sortedPosts])
 
   function addPost(newPost) {
     setPosts([...posts, newPost]);
@@ -51,35 +47,16 @@ export default function Main() {
     setIsPopupOpened(false)
   }
 
-  function sortPosts(sort) {
-    setSelectedSort(sort);
-  }
-
   return (
     <main className="content">
       <section className="posts">
         <h2 className="posts__title">Make your story.</h2>
         <button type="button" className="posts__button button" onClick={openPopup}>Create new post</button>
-        <div className="posts__search-container">
-          <DropdownMenu onSort={sortPosts} />
-          <label htmlFor="search" className="posts__search-label">Search</label>
-          <div className="posts__search-input">
-            <input
-              name="search"
-              type="text"
-              className="posts__search"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={evt => setSearchQuery(evt.target.value)}
-            />
-          </div>
-        </div>
-        <div className="posts__container">
-          {sortedAndSearchedPosts.length !== 0
-            ? <PostList posts={sortedAndSearchedPosts} onPostRemove={removePost} />
-            : <h2 className="posts__subtitle">{`No posts? ( ͠° ͟ʖ ͡°)`}</h2>
-          }
-        </div>
+        <PostFilter
+          filter={filter}
+          setFilter={setFilter}
+        />
+        <PostList posts={sortedAndSearchedPosts} onPostRemove={removePost} />
       </section>
       <Popup isOpened={isPopupOpened} onClose={closePopup}>
         <PostForm onAddPost={addPost} />
