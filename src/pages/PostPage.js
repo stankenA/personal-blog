@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePosts } from '../hooks/usePost';
 import { useFetching } from '../hooks/useFetching';
 
-import PostFilter from './PostFilter';
-import PostList from './PostList';
-import Popup from './Popup';
-import PostForm from './PostForm';
-import Pagination from './Pagination';
+import PostFilter from '../components/PostFilter';
+import PostList from '../components/PostList';
+import Popup from '../components/Popup';
+import PostForm from '../components/PostForm';
+import Pagination from '../components/Pagination';
 
 import PostService from '../API/PostService';
 import { getPageCount } from '../utils/pages';
 
-export default function Main() {
+export default function PostPage() {
 
   const [posts, setPosts] = useState([]);
   const [isPopupOpened, setIsPopupOpened] = useState(false);
@@ -61,6 +61,17 @@ export default function Main() {
 
   return (
     <main className="content">
+      <section className="banner">
+        <div className="banner__content">
+          <h1 className="banner__title">Entrust your site to developer</h1>
+          <p className="banner__subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem necessitatibus provident
+            molestiae, est similique, adipisci debitis dicta perspiciatis quia suscipit animi
+            reprehenderit accusamus nam eius placeat, dolorem eum mollitia sapiente.
+          </p>
+          <button className="banner__button button">Push me!</button>
+        </div>
+      </section>
       <section className="posts">
         <h2 className="posts__title">Make your story.</h2>
         <button type="button" className="posts__button button" onClick={openPopup}>Create new post</button>
@@ -82,7 +93,7 @@ export default function Main() {
         />
       </section>
       <Popup isOpened={isPopupOpened} onClose={closePopup}>
-        <PostForm onAddPost={addPost} />
+        <PostForm onAddPost={addPost} postId={posts.length + 1} />
       </Popup>
       <button type="button" className="posts__up button">Go up</button>
     </main>

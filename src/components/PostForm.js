@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-export default function PostForm({ onAddPost }) {
+export default function PostForm({ onAddPost, postId }) {
 
   const [post, setPost] = useState({ title: '', body: '' });
 
   function addNewPost(evt) {
     evt.preventDefault();
 
-    onAddPost({ ...post, id: post.title });
+    onAddPost({ ...post, id: postId });
     setPost({ title: '', body: '' });
   }
 

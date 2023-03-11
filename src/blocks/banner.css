@@ -1,0 +1,32 @@
+.banner {
+  width: 100%;
+  background-color: #DBEFFA;
+  border-radius: 48px;
+  min-height: 700px;
+  background-image: url(../images/mountain.png);
+  background-repeat: no-repeat;
+  background-position: right 0 top 0;
+  background-size: 50%;
+}
+
+.banner__content {
+  width: 550px;
+  padding-top: 145px;
+  margin-left: 108px;
+}
+
+.banner__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 64px;
+}
+
+.banner__subtitle {
+  opacity: .7;
+  margin: 32px 0 72px;
+}
+
+.banner__button {
+  width: 174px;
+  height: 48px;
+}
