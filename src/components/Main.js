@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { usePosts } from '../hooks/usePost';
 import { useFetching } from '../hooks/useFetching';
 
@@ -6,26 +6,34 @@ import PostFilter from './PostFilter';
 import PostList from './PostList';
 import Popup from './Popup';
 import PostForm from './PostForm';
+import Pagination from './Pagination';
 
 import PostService from '../API/PostService';
+import { getPageCount } from '../utils/pages';
 
 export default function Main() {
 
   const [posts, setPosts] = useState([]);
   const [isPopupOpened, setIsPopupOpened] = useState(false);
   const [filter, setFilter] = useState({ sort: '', query: '' });
+  const [totalPages, setTotalPages] = useState(0);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
 
   // Этот кастомный хук необходим для часто встречающихся задач:
   // 1. Показывать индикатор загрузки при различных запросах
   // 2. Обработать ошибку запроса
   const [fetchPosts, isPostsLoading, postError] = useFetching(async () => {
-    const posts = await PostService.getAll();
-    setPosts(posts);
+    const response = await PostService.getAll(limit, page);
+    setPosts(response.data);
+    // Достаём общее количество постов с бэка и устанавливаем общее количество страниц
+    const totalCount = response.headers['x-total-count'];
+    setTotalPages(getPageCount(totalCount, limit));
   })
 
   useEffect(() => {
     fetchPosts();
-  }, [])
+  }, [page])
 
   // Данный хук возвращает отсортированные и отфильтрованные посты
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
@@ -44,7 +52,11 @@ export default function Main() {
   }
 
   function closePopup() {
-    setIsPopupOpened(false)
+    setIsPopupOpened(false);
+  }
+
+  function changePage(page) {
+    setPage(page);
   }
 
   return (
@@ -63,6 +75,11 @@ export default function Main() {
           ? <span className="posts__loader"></span>
           : <PostList posts={sortedAndSearchedPosts} onPostRemove={removePost} />
         }
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          changePage={changePage}
+        />
       </section>
       <Popup isOpened={isPopupOpened} onClose={closePopup}>
         <PostForm onAddPost={addPost} />

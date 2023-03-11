@@ -9,7 +9,7 @@ export default function Post({ post, number, onPostRemove }) {
   return (
     <div className="posts__card">
       <div className="posts__top">
-        <span className="posts__number">{number}</span>
+        <span className="posts__number">{post.id}</span>
         <h2 className="posts__heading">{post.title}</h2>
         <button className="posts__delete-btn" onClick={removePost}></button>
       </div>

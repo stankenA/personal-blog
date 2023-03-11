@@ -15,7 +15,7 @@ export default function PostList({ posts, onPostRemove }) {
               timeout={800}
               classNames="animation"
             >
-              <Post number={index + 1} post={post} onPostRemove={onPostRemove} />
+              <Post post={post} onPostRemove={onPostRemove} />
             </CSSTransition>
 
           ))}
