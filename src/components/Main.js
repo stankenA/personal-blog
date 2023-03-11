@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { usePosts } from '../hooks/usePost';
+import { useFetching } from '../hooks/useFetching';
 
 import PostFilter from './PostFilter';
 import PostList from './PostList';
@@ -13,8 +14,20 @@ export default function Main() {
   const [posts, setPosts] = useState([]);
   const [isPopupOpened, setIsPopupOpened] = useState(false);
   const [filter, setFilter] = useState({ sort: '', query: '' });
-  const [isPostsLoading, setIsPostsLoading] = useState(false);
 
+  // Этот кастомный хук необходим для часто встречающихся задач:
+  // 1. Показывать индикатор загрузки при различных запросах
+  // 2. Обработать ошибку запроса
+  const [fetchPosts, isPostsLoading, postError] = useFetching(async () => {
+    const posts = await PostService.getAll();
+    setPosts(posts);
+  })
+
+  useEffect(() => {
+    fetchPosts();
+  }, [])
+
+  // Данный хук возвращает отсортированные и отфильтрованные посты
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
   function addPost(newPost) {
@@ -34,17 +47,6 @@ export default function Main() {
     setIsPopupOpened(false)
   }
 
-  async function fetchPosts() {
-    setIsPostsLoading(true);
-    const posts = await PostService.getAll();
-    setPosts(posts);
-    setIsPostsLoading(false);
-  }
-
-  useEffect(() => {
-    fetchPosts();
-  }, [])
-
   return (
     <main className="content">
       <section className="posts">
@@ -54,6 +56,9 @@ export default function Main() {
           filter={filter}
           setFilter={setFilter}
         />
+        {postError &&
+          <h2 className="posts__subtitle">Oops! Something went wrong: {postError}</h2>
+        }
         {isPostsLoading
           ? <span className="posts__loader"></span>
           : <PostList posts={sortedAndSearchedPosts} onPostRemove={removePost} />

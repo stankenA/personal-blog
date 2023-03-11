@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 
+// Сортирует посты
 export function useSortedPosts(posts, sort) {
   const sortedPosts = useMemo(() => {
 
@@ -16,6 +17,7 @@ export function useSortedPosts(posts, sort) {
   return sortedPosts;
 }
 
+// Фильтрует сортированный массив по поисковому запросу
 export function usePosts(posts, sort, query) {
   const sortedPosts = useSortedPosts(posts, sort);
 
