@@ -20,7 +20,7 @@ export default function DropdownMenu({ onSort }) {
   return (
     <div className="dropdown">
       <h3 className="dropdown__title">Sort by</h3>
-      <div className="dropdown__selected" onClick={toggleDropdown} onChange={() => console.log('boop')}>
+      <div className="dropdown__selected" onClick={toggleDropdown}>
         <p className="dropdown__txt">{selectedItem}</p>
         <span className={`dropdown__arrow ${isDropdownOpened ? 'dropdown__arrow_opened' : ''}`}></span>
       </div>

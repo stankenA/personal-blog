@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 
 export default function PostForm({ onAddPost }) {
 
-  const [post, setPost] = useState({ title: '', text: '' });
+  const [post, setPost] = useState({ title: '', body: '' });
 
   function addNewPost(evt) {
     evt.preventDefault();
 
     onAddPost({ ...post, id: post.title });
-    setPost({ title: '', text: '' });
+    setPost({ title: '', body: '' });
   }
 
-  const isPostEmpty = post.text === '' || post.title === '';
+  const isPostEmpty = post.body === '' || post.title === '';
 
   return (
     <form className="posts__form" onSubmit={addNewPost}>
@@ -34,8 +34,8 @@ export default function PostForm({ onAddPost }) {
           className="posts__input posts__input_type_textarea"
           placeholder="Enter post text..."
           required
-          value={post.text}
-          onChange={evt => setPost({ ...post, text: evt.target.value })}
+          value={post.body}
+          onChange={evt => setPost({ ...post, body: evt.target.value })}
         >
         </textarea>
       </div>

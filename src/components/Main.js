@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePosts } from '../hooks/usePost';
 
 import PostFilter from './PostFilter';
@@ -6,14 +6,14 @@ import PostList from './PostList';
 import Popup from './Popup';
 import PostForm from './PostForm';
 
-import { initialPosts } from '../utils/constants';
+import PostService from '../API/PostService';
 
 export default function Main() {
 
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState([]);
   const [isPopupOpened, setIsPopupOpened] = useState(false);
-
   const [filter, setFilter] = useState({ sort: '', query: '' });
+  const [isPostsLoading, setIsPostsLoading] = useState(false);
 
   const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query);
 
@@ -34,6 +34,17 @@ export default function Main() {
     setIsPopupOpened(false)
   }
 
+  async function fetchPosts() {
+    setIsPostsLoading(true);
+    const posts = await PostService.getAll();
+    setPosts(posts);
+    setIsPostsLoading(false);
+  }
+
+  useEffect(() => {
+    fetchPosts();
+  }, [])
+
   return (
     <main className="content">
       <section className="posts">
@@ -43,7 +54,10 @@ export default function Main() {
           filter={filter}
           setFilter={setFilter}
         />
-        <PostList posts={sortedAndSearchedPosts} onPostRemove={removePost} />
+        {isPostsLoading
+          ? <span className="posts__loader"></span>
+          : <PostList posts={sortedAndSearchedPosts} onPostRemove={removePost} />
+        }
       </section>
       <Popup isOpened={isPopupOpened} onClose={closePopup}>
         <PostForm onAddPost={addPost} />

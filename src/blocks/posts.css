@@ -1,3 +1,13 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .posts {
   display: flex;
   flex-direction: column;
@@ -226,4 +236,12 @@
   line-height: 24px;
   display: block;
   margin: 50px auto;
+}
+
+.posts__loader {
+  display: block;
+  height: 60px;
+  width: 60px;
+  background: url(../images/loader.svg) no-repeat center / contain;
+  animation: rotate 2s infinite linear;
 }
