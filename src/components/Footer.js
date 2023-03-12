@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="footer__content">
         <div className="footer__top">
           <div className="footer__info">
-            <Link to="/posts" className="footer__logo-container link">
+            <Link to="/" className="footer__logo-container link">
               <img src={logo} alt="logo" className="footer__logo" />
               <p className="footer__logo-txt">BlogScape.</p>
             </Link>
