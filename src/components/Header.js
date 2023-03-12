@@ -10,6 +10,7 @@ export default function Header() {
 
   function logout() {
     setIsAuth(false);
+    localStorage.removeItem('auth');
   }
 
   return (

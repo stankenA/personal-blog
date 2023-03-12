@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
             <ul className="footer__menu">
               <li className="footer__menu-item">
-                <Link to="/about" className="footer__link link">About Us</Link>
+                <Link to="/about" className="footer__link link">About me</Link>
               </li>
               <li className="footer__menu-item">
                 <a href="#" className="footer__link link">About Us</a>

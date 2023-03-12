@@ -8,6 +8,7 @@ export default function Login() {
   function login(evt) {
     evt.preventDefault();
     setIsAuth(true);
+    localStorage.setItem('auth', true);
   }
 
   return (
