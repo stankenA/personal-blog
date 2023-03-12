@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 
+// Возвращает целое количество страниц
 export function usePagination(totalPages) {
   const pagination = useMemo(() => {
     let pagesArray = [];

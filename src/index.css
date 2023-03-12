@@ -4,8 +4,6 @@
 @import url(./blocks/link.css);
 @import url(./blocks/button.css);
 
-@import url(./blocks/animation.css);
-
 @import url(./blocks/App.css);
 @import url(./blocks/content.css);
 @import url(./blocks/header.css);
@@ -16,3 +14,6 @@
 @import url(./blocks/popup.css);
 @import url(./blocks/footer.css);
 @import url(./blocks/not-found.css);
+@import url(./blocks/post.css);
+
+@import url(./blocks/animation.css);

@@ -53,11 +53,17 @@
   padding: 40px;
   margin-bottom: 20px;
   position: relative;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+
+.posts__card:hover {
+  transform: scale(1.03);
 }
 
 .posts__top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin: 0 0 35px;
 }
 
@@ -82,7 +88,7 @@
   margin: 0;
   font-weight: 700;
   font-size: 36px;
-  line-height: 28px;
+  line-height: 40px;
 }
 
 .posts__txt {
@@ -244,4 +250,5 @@
   width: 60px;
   background: url(../images/loader.svg) no-repeat center / contain;
   animation: rotate 2s infinite linear;
+  margin: 30px auto;
 }

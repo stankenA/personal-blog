@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../images/footer__logo.svg';
 import telegram from '../images/telegram.svg';
 import vk from '../images/VK.svg';
@@ -10,10 +11,10 @@ export default function Footer() {
       <div className="footer__content">
         <div className="footer__top">
           <div className="footer__info">
-            <a href="#" className="footer__logo-container link">
-              <img src={logo} alt="" className="footer__logo" />
+            <Link to="/posts" className="footer__logo-container link">
+              <img src={logo} alt="logo" className="footer__logo" />
               <p className="footer__logo-txt">BlogScape.</p>
-            </a>
+            </Link>
             <p className="footer__info-txt">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae expedita quis possimus ipsum ullam
             </p>
@@ -24,7 +25,7 @@ export default function Footer() {
             </p>
             <ul className="footer__menu">
               <li className="footer__menu-item">
-                <a href="#" className="footer__link link">About Us</a>
+                <Link to="/about" className="footer__link link">About Us</Link>
               </li>
               <li className="footer__menu-item">
                 <a href="#" className="footer__link link">About Us</a>
