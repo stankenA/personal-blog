@@ -32,7 +32,7 @@ export default function Header() {
                   <Link to="/" className="header__link link">Blog</Link>
                 </li>
                 <li className="header__item">
-                  <Link to="#" className="header__link link">Smth else</Link>
+                  <Link to="*" className="header__link link">Smth else</Link>
                 </li>
               </ul>
             </nav>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/footer__logo.svg';
 import telegram from '../images/telegram.svg';
-import vk from '../images/VK.svg';
+import mail from '../images/mail.svg';
 import github from '../images/GitHub.svg';
 
 export default function Footer() {
@@ -28,13 +28,10 @@ export default function Footer() {
                 <Link to="/about" className="footer__link link">About me</Link>
               </li>
               <li className="footer__menu-item">
-                <a href="#" className="footer__link link">About Us</a>
+                <Link to="/" className="footer__link link">Blog</Link>
               </li>
               <li className="footer__menu-item">
-                <a href="#" className="footer__link link">About Us</a>
-              </li>
-              <li className="footer__menu-item">
-                <a href="#" className="footer__link link">About Us</a>
+                <Link to="*" className="footer__link link">Smth else</Link>
               </li>
             </ul>
           </nav>
@@ -42,36 +39,36 @@ export default function Footer() {
             <p className="footer__subtitle">CONTACTS</p>
             <ul className="footer__list">
               <li className="footer__item">
-                <a href="#" className="footer__icon-box">
+                <Link to="https://github.com/stankenA" target={'_blank'} className="footer__icon-box">
                   <span className="footer__icon">
                     <img src={github} alt="icon" className="footer__icon-img" />
                   </span>
-                </a>
+                </Link>
                 <div className="footer__item-content">
                   <p className="footer__social">GitHub</p>
+                  <p className="footer__social-name">stankenA</p>
+                </div>
+              </li>
+              <li className="footer__item">
+                <Link to="https://t.me/stanken_a" target={'_blank'} className="footer__icon-box">
+                  <span className="footer__icon">
+                    <img src={telegram} alt="icon" className="footer__icon-img" />
+                  </span>
+                </Link>
+                <div className="footer__item-content">
+                  <p className="footer__social">Telegram</p>
                   <p className="footer__social-name">stanken_a</p>
                 </div>
               </li>
               <li className="footer__item">
-                <a href="#" className="footer__icon-box">
+                <Link to="mailto:artyemst3@mail.ru" target={'_blank'} className="footer__icon-box">
                   <span className="footer__icon">
-                    <img src={github} alt="icon" className="footer__icon-img" />
+                    <img src={mail} alt="icon" className="footer__icon-img" />
                   </span>
-                </a>
+                </Link>
                 <div className="footer__item-content">
-                  <p className="footer__social">GitHub</p>
-                  <p className="footer__social-name">stanken_a</p>
-                </div>
-              </li>
-              <li className="footer__item">
-                <a href="#" className="footer__icon-box">
-                  <span className="footer__icon">
-                    <img src={github} alt="icon" className="footer__icon-img" />
-                  </span>
-                </a>
-                <div className="footer__item-content">
-                  <p className="footer__social">GitHub</p>
-                  <p className="footer__social-name">stanken_a</p>
+                  <p className="footer__social">E-mail</p>
+                  <p className="footer__social-name">artyemst3@mail.ru</p>
                 </div>
               </li>
             </ul>

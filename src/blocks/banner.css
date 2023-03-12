@@ -29,4 +29,10 @@
 .banner__button {
   width: 174px;
   height: 48px;
+  transition: all 1s ease;
+}
+
+.banner__button_open {
+  transform: scale(5) translate(100px);
+  font-size: 16px;
 }

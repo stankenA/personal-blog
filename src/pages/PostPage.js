@@ -19,6 +19,7 @@ export default function PostPage() {
   const [totalPages, setTotalPages] = useState(0);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
+  const [buttonOpen, setButtonOpen] = useState(false);
 
   // Этот кастомный хук необходим для часто встречающихся задач:
   // 1. Показывать индикатор загрузки при различных запросах
@@ -59,6 +60,10 @@ export default function PostPage() {
     setPage(page);
   }
 
+  function changeButtonState() {
+    setButtonOpen(!buttonOpen);
+  }
+
   return (
     <main className="content">
       <section className="banner">
@@ -69,7 +74,9 @@ export default function PostPage() {
             molestiae, est similique, adipisci debitis dicta perspiciatis quia suscipit animi
             reprehenderit accusamus nam eius placeat, dolorem eum mollitia sapiente.
           </p>
-          <button className="banner__button button">Push me!</button>
+          <button className={`banner__button button ${buttonOpen ? 'banner__button_open' : ''}`} onClick={changeButtonState}>
+            {buttonOpen ? `You're breathtaking!` : 'Push me!'}
+          </button>
         </div>
       </section>
       <section className="posts">
