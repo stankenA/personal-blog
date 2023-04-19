@@ -28,4 +28,4 @@
 
 ## Ссылки
 
-**Демо**: https://stankena.github.io/login
+**Демо**: https://stankena.github.io/personal-blog/
