@@ -39,7 +39,12 @@ export default function AppRouter() {
           <Route
             exact
             path="/login"
-            element={<Navigate to="/" replace />}
+            element={<Navigate to="/home" replace />}
+          />
+          <Route
+            exact
+            path="/"
+            element={<Navigate to="/home" replace />}
           />
         </Routes>
         : <Routes>

@@ -6,7 +6,7 @@ export default function PageNotFound() {
     <section className="not-found">
       <h1 className="not-found__title">404 - Page not found</h1>
       <p className="not-found__txt">{`Nothing to look at here :(`}</p>
-      <Link to="/" className="not-found__link">Home</Link>
+      <Link to="/home" className="not-found__link">Home</Link>
     </section>
   )
 }

@@ -10,6 +10,7 @@ import Pagination from '../components/Pagination';
 
 import PostService from '../API/PostService';
 import { getPageCount } from '../utils/pages';
+import { HashLink as Link } from 'react-router-hash-link';
 
 export default function PostPage() {
 
@@ -66,7 +67,7 @@ export default function PostPage() {
 
   return (
     <main className="content">
-      <section className="banner">
+      <section className="banner" id="banner">
         <div className="banner__content">
           <h1 className="banner__title">Entrust your site to developer</h1>
           <p className="banner__subtitle">
@@ -102,7 +103,7 @@ export default function PostPage() {
       <Popup isOpened={isPopupOpened} onClose={closePopup}>
         <PostForm onAddPost={addPost} postId={posts.length + 1} />
       </Popup>
-      <button type="button" className="posts__up button">Go up</button>
+      <Link to="#banner" className="posts__up button">Go up</Link>
     </main>
   )
 }

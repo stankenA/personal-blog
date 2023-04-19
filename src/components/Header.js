@@ -19,7 +19,7 @@ export default function Header() {
         {isAuth
           ?
           <>
-            <Link to="/" className="header__logo-link link">
+            <Link to="/home" className="header__logo-link link">
               <img src={logo} alt="Logo" className="header__logo" />
               <h2 className="header__logo-title">BlogScape.</h2>
             </Link>
@@ -29,7 +29,7 @@ export default function Header() {
                   <Link to="/about" className="header__link link">About me</Link>
                 </li>
                 <li className="header__item">
-                  <Link to="/" className="header__link link">Blog</Link>
+                  <Link to="/home" className="header__link link">Blog</Link>
                 </li>
                 <li className="header__item">
                   <Link to="*" className="header__link link">Smth else</Link>
@@ -39,7 +39,7 @@ export default function Header() {
             <button className="header__button button" onClick={logout}>Log out</button>
           </>
           :
-          <Link to="/" className="header__logo-link header__logo-link_centered link">
+          <Link to="/home" className="header__logo-link header__logo-link_centered link">
             <img src={logo} alt="Logo" className="header__logo" />
             <h2 className="header__logo-title">BlogScape.</h2>
           </Link>
