@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import meViolet from '../images/me__violet.jpg';
-import meCrazy from '../images/me__crazy.jpg';
+import meGrey from '../images/me__crazy.jpg';
 import coding from '../images/coding.jpg';
 
 export default function AboutPage() {
@@ -17,7 +17,7 @@ export default function AboutPage() {
             <Link to="https://t.me/stanken_a" target={'_blank'} className="about__link button">Contact Me</Link>
           </div>
           <div className="about__images">
-            <img src={meCrazy} alt="context image" className="about__img" />
+            <img src={meGrey} alt="context image" className="about__img" />
             <img src={meViolet} alt="context image" className="about__img" />
           </div>
         </div>
